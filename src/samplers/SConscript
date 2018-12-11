@@ -5,6 +5,7 @@ plugins += env.SharedLibrary('stratified', ['stratified.cpp'])
 plugins += env.SharedLibrary('halton', ['halton.cpp', 'faure.cpp'])
 plugins += env.SharedLibrary('hammersley', ['hammersley.cpp', 'faure.cpp'])
 plugins += env.SharedLibrary('ldsampler', ['ldsampler.cpp'])
+plugins += env.SharedLibrary('nullsampler', ['nullsampler.cpp'])
 plugins += env.SharedLibrary('sobol', ['sobol.cpp', 'sobolseq.cpp'])
 
 Export('plugins')
