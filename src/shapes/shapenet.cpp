@@ -724,13 +724,19 @@ public:
 
         for (auto it1 = group.begin(); it1 != group.end(); ++it1)
         {
-            ref<BSDF> bsdf1 = m_mtl[it1->first];
+            std::string name1 = it1->first;
+            size_t i1 = name1.find("_ncl");
+            if (i1 != std::string::npos) name1 = name1.substr(0,i1);
+            ref<BSDF> bsdf1 = m_mtl[name1];
 
             for (auto it2 = it1->second.begin(); it2 != it1->second.end(); ++it2)
             {
-                ref<BSDF> bsdf2 = m_mtl[it2->first];
+                std::string name2 = it2->first;
+                size_t i2 = name2.find("_ncl");
+                if (i2 != std::string::npos) name2 = name2.substr(0,i2);
+                ref<BSDF> bsdf2 = m_mtl[name2];
 
-                std::string name = formatString("%s-%s", it1->first.c_str(), it2->first.c_str());
+                std::string name = formatString("%s-%s", name1.c_str(), name2.c_str());
 
                 ref<BSDF> bsdf;
 
